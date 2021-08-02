@@ -4,4 +4,4 @@ sources:
   - name: stripe
     database: dbt-tutorial
     tables:
-      - name: payments
+      - name: payment
