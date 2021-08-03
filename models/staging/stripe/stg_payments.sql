@@ -5,7 +5,9 @@ paymentmethod as payment_method,
 status,
 
 -- amount is stored in cents, convert it to dollars
-amount / 100 amount,
+{{ cents_to_dollars('amount', 2) }} amount,
 created as created_at
 
 from {{ source('stripe', 'payment') }}
+
+{{ limit_data_in_dev('_batched_at', 1) }}
